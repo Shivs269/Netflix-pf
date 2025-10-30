@@ -1,16 +1,31 @@
 import React, { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link, useLocation } from "react-router-dom";
 import { FaDownload } from "react-icons/fa";
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const navigate = useNavigate();
+  const location = useLocation();
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 50);
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  // When location changes, if it has a hash and we're on /home, scroll to it
+  useEffect(() => {
+    if (location.pathname === "/home" && location.hash) {
+      const id = location.hash.replace("#", "");
+      const el = document.getElementById(id);
+      if (el) {
+        // give React a tick if needed
+        setTimeout(() => {
+          el.scrollIntoView({ behavior: "smooth", block: "start" });
+        }, 50);
+      }
+    }
+  }, [location]);
 
   const handleLogoClick = () => {
     navigate("/home");
@@ -37,18 +52,24 @@ const Navbar = () => {
         </div>
 
         <div className="hidden md:flex gap-6 text-sm">
-          <a href="#projects" className="hover:underline hover:text-red-500 transition">
+          <Link
+            to="/home#projects"
+            className="hover:underline hover:text-red-500 transition"
+          >
             Projects
-          </a>
-          <a href="#skills" className="hover:underline hover:text-red-500 transition">
+          </Link>
+          <Link
+            to="/home#skills"
+            className="hover:underline hover:text-red-500 transition"
+          >
             Skills
-          </a>
-          <a
-            href="/profile"
+          </Link>
+          <Link
+            to="/profile#contact"
             className="hover:underline hover:text-red-500 transition"
           >
             Contact
-          </a>
+          </Link>
         </div>
       </div>
 
@@ -60,7 +81,7 @@ const Navbar = () => {
         <div className="w-8 h-8 rounded-full bg-gray-700 flex items-center justify-center text-xs font-bold">
           S
         </div>
-        <div className="text-sm hidden sm:block">Shivani</div>
+        <div className="text-sm hidden sm:block">Profile</div>
 
         {/* Hover Popup */}
         <div className="absolute right-0 top-10 mt-2 bg-gray-900 border border-gray-700 rounded-lg shadow-lg w-80 p-4 z-50 opacity-0 group-hover:opacity-100 pointer-events-none group-hover:pointer-events-auto transition duration-200">

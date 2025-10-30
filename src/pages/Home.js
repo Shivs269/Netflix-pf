@@ -1,8 +1,11 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import projects from "../data/projects";
 import ProjectCard from "../components/ProjectCard";
 
 const Home = () => {
+  const navigate = useNavigate();
+
   return (
     <div className="bg-black text-white">
       {/* Hero Section */}
@@ -12,7 +15,7 @@ const Home = () => {
           <div className="md:w-1/2 relative h-[60vh] mt-24 md:mt-24 -ml-[calc((100vw-100%)/2)]">
             <div className="absolute inset-0 top-0">
               <img
-                src="/images/Shivani.jpeg"
+                src={process.env.PUBLIC_URL + "/images/Shivani.jpeg"}
                 alt="Shivani Rajkumar"
                 loading="lazy"
                 className="object-cover w-full h-full rounded-xl"
@@ -23,7 +26,7 @@ const Home = () => {
                     "linear-gradient(to right, black 60%, transparent 100%)",
                   objectPosition: "center 75%",
                   objectFit: "cover",
-                  transform: "scale(0.9)", // Zoomed out more
+                  transform: "scale(0.9)",
                 }}
               />
               <div className="absolute inset-0 ring-2 ring-red-600 opacity-20 blur-xl animate-pulse" />
@@ -42,12 +45,12 @@ const Home = () => {
                 portfolio interfaces, I design with purpose and polish.
               </p>
               <div className="flex flex-wrap gap-4">
-                <a
-                  href="#projects"
+                <button
+                  onClick={() => navigate("/profile")}
                   className="px-6 py-3 bg-red-600 hover:bg-red-700 rounded-full font-semibold shadow-lg transition"
                 >
-                  View Projects
-                </a>
+                  View Profile
+                </button>
                 <a
                   href="/SHIVANI RAJKUMAR-resume.pdf"
                   download
@@ -118,7 +121,7 @@ const Home = () => {
               title: "Department Newsletter Committee (2023)",
               subtitle: "Editorial",
               description:
-                "Served as a core member of the editorial team at NHCE, contributing to the department’s newsletter and fostering knowledge sharing.",
+                "Served as a core member of NHCE’s editorial team, contributing to the department newsletter and actively fostering knowledge sharing and collaboration within the institution.",
             },
             {
               title: "Ideathons & Paper Presentations (2024)",
@@ -141,7 +144,7 @@ const Home = () => {
           ].map((item, i) => (
             <div
               key={i}
-              className="bg-gray-800 rounded-xl p-6 shadow-lg hover:shadow-red-600 transition h-72 overflow-hidden"
+              className="bg-gray-800 rounded-xl p-6 shadow-lg hover:shadow-red-600 transition h-60 overflow-hidden"
             >
               <div className="text-sm uppercase text-red-500 font-semibold mb-2">
                 {item.subtitle}

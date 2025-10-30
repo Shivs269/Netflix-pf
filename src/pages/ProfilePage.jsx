@@ -15,11 +15,10 @@ const ProfilePage = () => {
         {/* Left: Profile Image */}
         <div className="flex-shrink-0 w-full md:w-1/3 flex justify-center md:justify-start">
           <img
-            src="/images/Shivani.jpeg"
+            src={process.env.PUBLIC_URL + "/images/Shivani.jpeg"}
             alt="Shivani Rajkumar"
             className="w-full max-w-xs md:max-w-full h-auto object-cover rounded-xl shadow-lg"
-            style={{ maxHeight: "400px", objectPosition: "center 65%" }} 
-            // Changed from 75% to 65% to move image focus upward a bit
+            style={{ maxHeight: "400px", objectPosition: "center 65%" }}
           />
         </div>
 

@@ -6,7 +6,7 @@ const projects = [
       description:
         "Team project integrating machine learning and deep learning to enhance sericulture with threat detection and prediction.",
       tags: ["AI", "ML", "Sustainability", "Patent"],
-      image: "/images/silk.jpg",
+      image: process.env.PUBLIC_URL + "/images/silk.jpg",
       link: "/project/1",
     },
     {
@@ -16,7 +16,7 @@ const projects = [
       description:
         "Recommends music based on preferences, seasonality, and popularity.",
       tags: ["Recommendation", "Python", "ML"],
-      image: "/images/music.jpg",
+      image: process.env.PUBLIC_URL + "/images/music.jpg",
       link: "/project/2",
     },
     {
@@ -26,7 +26,7 @@ const projects = [
       description:
         "Built using Arduino Uno and IR sensors to follow lines autonomously.",
       tags: ["Embedded", "Arduino", "Automation"],
-      image: "/images/lfr.jpg",
+      image: process.env.PUBLIC_URL + "/images/lfr.jpg",
       link: "/project/3",
     },
     {
@@ -36,7 +36,7 @@ const projects = [
       description:
         "Waters plants based on soil moisture, with telemetry.",
       tags: ["IoT", "Sensors", "Automation"],
-      image: "/images/plant.jpg",
+      image: process.env.PUBLIC_URL + "/images/plant.jpg",
       link: "/project/4",
     },
     {
@@ -46,7 +46,7 @@ const projects = [
       description:
         "App for students to join streams, view and register for events, built with Firebase integration.",
       tags: ["Flutter", "Firebase", "UI"],
-      image: "/images/college-connect.jpg",
+      image: process.env.PUBLIC_URL + "/images/college-connect.jpg",
       link: "/project/5",
     },
     {
@@ -56,7 +56,7 @@ const projects = [
       description:
         "Uses a large language model to describe visible objects from a webcam feed.",
       tags: ["LLM", "Computer Vision"],
-      image: "/images/llm.jpg",
+      image: process.env.PUBLIC_URL + "/images/llm.jpg",
       link: "/project/6",
     },
     {
@@ -66,7 +66,7 @@ const projects = [
       description:
         "Timestamped audio/video, notes, and practice question generation for better learning.",
       tags: ["AI", "Education", "Research"],
-      image: "/images/classroom.jpg",
+      image: process.env.PUBLIC_URL + "/images/classroom.jpg",
       link: "/project/7",
     },
   ];
